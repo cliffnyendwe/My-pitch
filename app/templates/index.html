@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Welcome  To  Pitch !</h1>
+<p id='intro'>An application that allows you to submit your one minute pitch.</p>
+<br>
+<p >Please select a catagory:</p>
+      <a  href="{{url_for('main.category',ct_name='pickup lines')}}">1. Pickup lines</a>
+      <a  href="/category/interview pitch">2. Interview pitch</a>
+      <a  href="/category/product pitch">3. Product pitch</a>
+      <a  href="/category/promotion pitch">4. Promotion pitch</a>
+
+{% endblock%}
