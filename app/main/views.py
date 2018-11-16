@@ -15,7 +15,7 @@ def index():
   return render_template('index.html', title = title)
 
 
-@main.route('/category/<ct_name>')
+@main.route('/pitch/<ct_name>')
 def category(ct_name):
   category = ct_name
   title = f'{category}'
@@ -24,7 +24,7 @@ def category(ct_name):
   return render_template('category.html', title = title, category = category, posts = posts)
 
 
-@main.route('/category/comments/<int:id>')
+@main.route('/pitch/comments/<int:id>')
 def comments(id):
   title = 'Comments'
   comments = Comment.get_comments(id)
@@ -32,7 +32,7 @@ def comments(id):
   return render_template('comments.html', title = title, comments = comments )
 
 @login_required
-@main.route('/category/post/new/<ct_name>', methods = ['GET','POST']) 
+@main.route('/pitch/post/new/<ct_name>', methods = ['GET','POST']) 
 def new_post(ct_name):
   form = PostForm()
   category = ct_name
@@ -40,17 +40,17 @@ def new_post(ct_name):
   if form.validate_on_submit():
       title = form.title.data
       post = form.post.data
-      ctg = form.category.data
       print(title)
-      new_post = Post(post_category = ctg, post_title = title, post_text = post, post_votes = 0, user=current_user )
+      new_post = Post( post_title = title, post_text = post, post_votes = 0, user=current_user )
       new_post.save_post()
-      return redirect(url_for('.category',ct_name=category))
+      return redirect(url_for('.pitch',ct_name=pitch))
 
   title = 'New Post'
-  return render_template('new_posts.html', title= title, form= form, category= category)
+  return render_template('new_post.html', title= title, form= form, pitch= pitch)
 
+
+@main.route('/pitch/post/comments/new/<int:id>', methods = ['GET', 'POST'])
 @login_required
-@main.route('/category/post/comments/new/<int:id>', methods = ['GET', 'POST'])
 def new_comment(id):
   form = CommentForm()
   print(id)
@@ -85,9 +85,9 @@ def profile(uname):
     if user is None:
         abort(404)
     print(user.id)
-    posts = Post.query.filter_by(user_id=user.id).order_by(Post.post_time.desc()).all()
+    post = Post.query.filter_by(user_id=user.id).order_by(Post.post_time.desc()).all()
 
-    return render_template('profile/profile.html',user = user,posts=posts)
+    return render_template('profile/profile.html',user = user,post=post)
 
 
 
@@ -109,8 +109,9 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form = form)
 
-@login_required
+
 @main.route('/user/<uname>/update/pic', methods=['POST'])
+@login_required
 def update_pic(uname):
     user = User.query.filter_by(username = uname).first()
     if 'photo' in request.files:
