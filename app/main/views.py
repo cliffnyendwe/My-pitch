@@ -1,4 +1,3 @@
-
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from .forms import PostForm, CommentForm, UpdateProfile
@@ -15,11 +14,11 @@ def index():
   return render_template('index.html', title = title)
 
 
-@main.route('/pitch/<ct_name>')
-def category(ct_name):
-  category = ct_name
-  title = f'{category}'
-  posts = Post.get_posts(category)
+@main.route('/pitch/<pitch_name>')
+def pitch(pitch_name):
+  pitch = pitch_name
+  title = f'{pitch}'
+  posts = Post.get_posts(pitch)
 
   return render_template('category.html', title = title, category = category, posts = posts)
 
@@ -32,10 +31,10 @@ def comments(id):
   return render_template('comments.html', title = title, comments = comments )
 
 @login_required
-@main.route('/pitch/post/new/<ct_name>', methods = ['GET','POST']) 
-def new_post(ct_name):
+@main.route('/pitch/post/new/<pitch_name>', methods = ['GET','POST']) 
+def new_post(pitch_name):
   form = PostForm()
-  category = ct_name
+  pitch = pitch_name
   
   if form.validate_on_submit():
       title = form.title.data
@@ -43,7 +42,7 @@ def new_post(ct_name):
       print(title)
       new_post = Post( post_title = title, post_text = post, post_votes = 0, user=current_user )
       new_post.save_post()
-      return redirect(url_for('.pitch',ct_name=pitch))
+      return redirect(url_for('.pitch',pitch_name=pitch))
 
   title = 'New Post'
   return render_template('new_post.html', title= title, form= form, pitch= pitch)
