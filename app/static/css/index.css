@@ -2,8 +2,34 @@ h1{
     color:whitesmoke;
 }
 body{
-background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    background: linear-gradient(to right, #243B55, #141E30);     
 }
 .links{
     color:whitesmoke;
+    margin-right: 50px;
+}
+p{
+    font-size:x-large;
+    color:wheat;
+}
+#pitch{
+    margin-top:20%;
+}
+.navright{
+    margin-left: 50px;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    
+}
+.navright:hover{
+    background-color: blue;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+nav a:hover{
+    text-decoration: none;
+    background-color: red;
 }

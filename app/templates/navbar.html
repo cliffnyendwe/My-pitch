@@ -1,25 +1,34 @@
 <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container-fluid">
-      
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">PITCH</a>
-      </div>
-  
-      <!-- Collect the nav links, forms, and other content for toggling -->       
-        <ul class="nav navbar-nav navbar-right">
-            {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-            {% else %}
-            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-            {%endif%}
-          </ul>
-      </div>
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+
+      </button>
+      <a class="btn btn-danger" style="font-size:x-large" href="/">PITCH</a>
     </div>
-  </nav>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="links">
+      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Pickup lines</a>
+      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/interview pitch"> Interview pitch</a>
+      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/product pitch"> Product pitch</a>
+      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Promotion pitch</a>
+
+      <span {% if current_user.is_authenticated %}>
+        <a class="btn btn-primary" style="font-size:x-large;" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
+        <a class="btn btn-primary" style="font-size:x-large;  " href="{{url_for('auth.logout')}}">Sign out</a>
+        {% else %}
+        <a href="{{url_for('auth.login')}}">Sign in</a>
+        {%endif%}
+      </span>
+    </div>
+
+
+
+  </div>
+  </div>
+</nav>
