@@ -14,12 +14,12 @@
   {% for post in posts %}
   <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">{{post.post_title}}</h3>
+        <h3 class="panel-title" style='font-size:large;color:antiquewhite'>{{post.post_title}}</h3>
       </div>
       <div class="panel-body">
-          <p class='firstletter'>{{post.post_text}}</p>
+          <p class='firstletter' style='font-size:large;color:antiquewhite'>{{post.post_text}}</p>
       </div>
-    <div class="panel-footer"><a class="btn btn-primary text-center" href="{{url_for('main.view_post', id=post.id)}}">View Comments</a></div>
+    <div class="panel-footer"><a class="btn btn-primary text-center" style='font-size:large;color:antiquewhite' href="{{url_for('main.view_post', id=post.id)}}">View Comments</a></div>
   </div>
   {% endfor %}
 

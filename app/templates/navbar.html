@@ -17,18 +17,16 @@
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/interview pitch"> Interview pitch</a>
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/product pitch"> Product pitch</a>
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Promotion pitch</a>
+      <a class="btn btn-outline-danger"id = "pitch" style="font-size:x-large" href="/pitch/join us now"> Join us now</a>
 
       <span {% if current_user.is_authenticated %}>
-        <a class="btn btn-primary" style="font-size:x-large;" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
-        <a class="btn btn-primary" style="font-size:x-large;  " href="{{url_for('auth.logout')}}">Sign out</a>
+
+        <a class="btn btn-primary" style="font-size:x-large;" id = "profile"href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
+        <a class="btn btn-primary" style="font-size:x-large;" id = "sign"href="{{url_for('auth.logout')}}">Sign out</a>
         {% else %}
         <a href="{{url_for('auth.login')}}">Sign in</a>
         {%endif%}
       </span>
     </div>
-
-
-
-  </div>
   </div>
 </nav>
