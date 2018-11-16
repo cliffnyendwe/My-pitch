@@ -9,7 +9,7 @@ class UpdateProfile(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    category = SelectField('Category',choices=[('dadjokes','DadJokes'),('til','TIL'),('showerthoughts','ShowerThoughts')])
+    pitch = SelectField('pitch',choices=[('pickup lines','pickup lines'),('interview pitch','interview pitch'),('product pitch','product pitch')])
     title = StringField('Post title',validators=[DataRequired()])
     post = TextAreaField('Write your post',validators=[DataRequired()])
     submit = SubmitField('Submit')

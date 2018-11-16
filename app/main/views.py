@@ -20,7 +20,7 @@ def pitch(pitch_name):
   title = f'{pitch}'
   posts = Post.get_posts(pitch)
 
-  return render_template('category.html', title = title, category = category, posts = posts)
+  return render_template('category.html', title = title, pitch = pitch, posts = posts)
 
 
 @main.route('/pitch/comments/<int:id>')

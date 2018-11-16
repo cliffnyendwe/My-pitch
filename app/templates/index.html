@@ -1,17 +1,24 @@
 {% extends 'base.html'%}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
+
+{% endblock %}
+
+
 {% block content %}
 
-<h1>Welcome  To  Pitch !</h1>
+<h1>WELCOME TO ONE MINUTE PITCH</h1>
 <p
 
 
 
 
 
->An application that allows you to submit your one minute pitch.</p>
+>An application that enables one to chose the pitch they want.</p>
 <br>
-<p >Please select a catagory:</p>
+<p >Please select a your pitch:</p>
       <a  href="/pitch/promotion pitch">1. Pickup lines</a>
       <a  href="/pitch/interview pitch">2. Interview pitch</a>
       <a  href="/pitch/product pitch">3. Product pitch</a>
