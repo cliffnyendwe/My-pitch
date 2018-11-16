@@ -4,6 +4,7 @@
 {{ super() }}
 <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
 
+
 {% endblock %}
 
 
@@ -14,6 +15,11 @@
 <br><br>
 <p>An application that enables one to chose the pitch they want.</p>
 <br>
-<p>Please select your pitch:</p>
+<p>Select your pitch and happy time as you comment</p>
+<br><br><br>
+<div align="right" style="width:50%;float:right ;padding-top:20%">
+    <marquee direction="left" scrollamount"30">
+        <p>Welcome to my one minute pitch,sign up before before commenting on anything,feel free!!!</p>
+    </marquee>
 
-{% endblock%}
+    {% endblock%}

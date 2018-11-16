@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse navbar-static-top">
-  <div class="container-fluid" style = "background-color: blanchedalmond">
+  <div class="container-fluid">
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -19,14 +19,14 @@
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Promotion pitch</a>
       <a class="btn btn-outline-danger"id = "pitch" style="font-size:x-large" href="/pitch/join us now"> Join us now</a>
 
-      <span {% if current_user.is_authenticated %}>
+      {% if current_user.is_authenticated %}
 
-        <a class="btn btn-primary" style="font-size:x-large;" id = "profile"href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
-        <a class="btn btn-primary" style="font-size:x-large;" id = "sign"href="{{url_for('auth.logout')}}">Sign out</a>
+        <a class="btn btn-outline-primary" style="font-size:x-large;" id = "profile"href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>
+        <a class="btn btn-outline-primary" style="font-size:x-large;" id = "sign"href="{{url_for('auth.logout')}}">Sign out</a>
         {% else %}
-        <a href="{{url_for('auth.login')}}">Sign in</a>
+        <a class="btn btn-outline-primary" id = "sign"style="font-size:x-large;"href="{{url_for('auth.login')}}">Sign in</a>
         {%endif%}
-      </span>
+      
     </div>
   </div>
 </nav>
