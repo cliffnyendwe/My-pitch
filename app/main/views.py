@@ -10,7 +10,7 @@ import markdown2
 @main.route('/')
 def index():
 
-  title = 'Home - Welcome to Pitch Me This'
+  title = 'Home - Welcome to Pitch'
 
   return render_template('index.html', title = title)
 
@@ -68,6 +68,7 @@ def new_comment(id):
 
 
 @main.route('/post/view/<int:id>', methods=['GET', 'POST'])
+@login_required
 def view_post(id):
     test = id
     print(test)
