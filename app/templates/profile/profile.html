@@ -11,7 +11,7 @@
 {% endif %}
 
 {% if user.profile_pic_path %}
-<img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+<img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" style = "text-align: center">
 {%else%}
 <p>No profile picture</p>
 {% endif %}
@@ -26,7 +26,7 @@
 <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
 {% endif %}
 
-<h3>My Pitches:</h3>
+
 
 {% for post in posts %}
 <h3>{{post.post_title}}</h3>

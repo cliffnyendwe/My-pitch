@@ -19,9 +19,9 @@ def index():
 def pitch(pitch_name):
   pitch = pitch_name
   title = f'{pitch}'
-  posts = Post.get_posts(pitch)
+  post = Post.get_posts(pitch)
 
-  return render_template('category.html', title = title, pitch = pitch, posts = posts)
+  return render_template('category.html', title = title, pitch = pitch, post = post)
 
 
 @main.route('/pitch/comments/<int:id>')
@@ -64,7 +64,7 @@ def new_comment(id):
     return redirect(url_for('.view_post',id = id))
 
   title = 'New Comment'
-  return render_template('new_comments.html', title= title, form= form)
+  return render_template('new_post.html', title= title, form= form)
 
 
 @main.route('/post/view/<int:id>', methods=['GET', 'POST'])
