@@ -12,6 +12,7 @@ body{
 p{
     font-size:x-large;
     color:wheat;
+    text-align: center;
 }
 /* #pitch{
     margin-top:20%;

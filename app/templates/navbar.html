@@ -13,12 +13,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
 
     <div class="links">
-      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Pickup lines</a>
+      <a class="btn btn-primary btn-lg" href="{{url_for('main.pitch',pitch_name='pickuplines')}}">Pitches</a>
+      <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/pickup lines pitch"> Pickup lines</a>
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/interview pitch"> Interview pitch</a>
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/product pitch"> Product pitch</a>
       <a class="btn btn-outline-danger" style="font-size:x-large;" href="/pitch/promotion pitch"> Promotion pitch</a>
-      <a class="btn btn-outline-danger"id = "pitch" style="font-size:x-large" href="/pitch/join us now"> Join us now</a>
-
+      <a class="btn btn-outline-danger" style="font-size:x-large;"href="{{url_for('auth.register')}}">Join us today</a>
       {% if current_user.is_authenticated %}
 
         <a class="btn btn-outline-primary" style="font-size:x-large;" id = "profile"href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a>

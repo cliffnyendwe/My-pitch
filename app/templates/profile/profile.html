@@ -41,8 +41,7 @@
     {% for post in posts %}
     <h3>{{post.post_title}}</h3>
     <p>{{post.post_text}}</p>
-    <div class="panel-footer"><a class="btn btn-primary text-center" href="{{url_for('main.new_post', id=post.id)}}">View
-            Comments</a>
+    <div class="panel-footer"><a class="btn btn-primary text-center" href="{{url_for('main.new_post', id=post.id)}}">View Comments</a><a href="/comment/4">comment</a>
 
         {% endfor %}
     </div>
