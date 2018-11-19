@@ -17,8 +17,11 @@ My pitch is an application that allows users to regester an account and sign in 
 
 
 # Github-link
-https://git.heroku.com/pitch5.git
+https://pitch5.herokuapp.com/
 
+# Live Demo
+
+Run this url link:https://pitch5.herokuapp.com/
 # Contacts
 To find me, use: cliffnyendwe2018@gmail.com
 0710755176
