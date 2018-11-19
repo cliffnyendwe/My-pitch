@@ -5,6 +5,8 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:0710755176cliff@localhost/pitch'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 # email configuration
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -22,19 +24,6 @@ class ProdConfig(Config):
     def init_app(app):
         pass
 
-
-class ProdConfig(Config):
-    pass
-
-
-class DevConfig(Config):
-    DEBUG = True
-
-config_options = {
-'development':DevConfig,
-'production':ProdConfig
-
-}
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:0710755176cliff@localhost/pitch_test'

@@ -16,11 +16,13 @@ def index():
 
 @main.route('/pitch/<pitch_name>' )
 def pitch(pitch_name):
+
   pitch = pitch_name
   title = f'{pitch}'
   post = Post.get_posts(pitch)
+  print(post)
 
-  return render_template('category.html', title = title, pitch = pitch, post = post)
+  return render_template('category.html', title = title, pitch = pitch, posts = post)
 
 
 @main.route('/pitch/comments/<int:id>')
@@ -40,7 +42,7 @@ def new_post(pitch_name):
       title = form.title.data
       post = form.post.data
       print(title)
-      new_post = Post( post_title = title, post_text = post, post_votes = 0, user=current_user )
+      new_post = Post( post_title = title, post_text = post, post_votes = 0, user=current_user,post_category=pitch_name )
       new_post.save_post()
       return redirect(url_for('.pitch',pitch_name=pitch))
 
