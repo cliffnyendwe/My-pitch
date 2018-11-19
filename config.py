@@ -3,6 +3,8 @@ import os
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:0710755176cliff@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_ONYX_URL")
+
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
 
@@ -18,8 +20,9 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_BROWN_URL")
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_ONYX_URL")
+    DEBUG = True
+    
 
 
 class TestConfig(Config):
