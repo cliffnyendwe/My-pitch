@@ -18,7 +18,7 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_MAROON_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_BROWN_URL")
     pass
 
 
