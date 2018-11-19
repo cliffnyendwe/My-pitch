@@ -41,10 +41,10 @@
 import os
 
 class Config:
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://yego:pass123@localhost/minutepitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:0710766176@localhost/pitch'
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
-    SECRET_KEY=os.environ.get('SECRET_KEY') or '1234'
+    SECRET_KEY=os.environ.get('SECRET_KEY')
     MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
